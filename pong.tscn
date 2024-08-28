@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://coaot02c1ucky"]
+
+[ext_resource type="Script" path="res://pong.gd" id="1_dt2ug"]
+[ext_resource type="PackedScene" uid="uid://4lw8k1edt5ln" path="res://paddle.tscn" id="2_ilvhw"]
+[ext_resource type="PackedScene" uid="uid://bhb5tjef262ks" path="res://wall.tscn" id="3_ebrpx"]
+
+[node name="Pong" type="Node2D"]
+script = ExtResource("1_dt2ug")
+
+[node name="LeftPaddle" parent="." instance=ExtResource("2_ilvhw")]
+position = Vector2(40, 296)
+player = "player1"
+
+[node name="RightPaddle" parent="." instance=ExtResource("2_ilvhw")]
+position = Vector2(920, 296)
+player = "player2"
+
+[node name="Line2D" type="Line2D" parent="."]
+visible = false
+position = Vector2(480, 0)
+points = PackedVector2Array(0, 536, 0, 56)
+width = 5.0
+default_color = Color(0.894118, 0.894118, 0.894118, 1)
+
+[node name="UpperWall" parent="." instance=ExtResource("3_ebrpx")]
+
+[node name="LowerWall" parent="." instance=ExtResource("3_ebrpx")]
+position = Vector2(0, 531)
