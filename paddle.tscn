@@ -11,7 +11,6 @@ size = Vector2(16, 82)
 script = ExtResource("1_gieiw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.894922, 0.894922, 0.894922, 1)
 position = Vector2(4.76837e-07, 0)
 scale = Vector2(15.5, 81.5)
 texture = SubResource("CanvasTexture_5vaiw")

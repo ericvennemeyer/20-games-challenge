@@ -3,17 +3,16 @@
 [sub_resource type="CanvasTexture" id="CanvasTexture_dfjvo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cx5yh"]
-size = Vector2(864, 8)
+size = Vector2(864, 5)
 
 [node name="Wall" type="StaticBody2D"]
 position = Vector2(0, 55)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.894118, 0.894118, 0.894118, 1)
-position = Vector2(480, 3.75)
-scale = Vector2(864, 8.5)
+position = Vector2(480, 3)
+scale = Vector2(864, 5)
 texture = SubResource("CanvasTexture_dfjvo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(480, 4)
+position = Vector2(480, 3)
 shape = SubResource("RectangleShape2D_cx5yh")
