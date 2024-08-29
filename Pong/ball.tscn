@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://7q7nw8cc5hvn"]
 
-[ext_resource type="Script" path="res://ball.gd" id="1_wfmmv"]
+[ext_resource type="Script" path="res://Pong/ball.gd" id="1_wfmmv"]
 
 [sub_resource type="Gradient" id="Gradient_yllkj"]
 interpolation_mode = 1

@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://coaot02c1ucky"]
 
-[ext_resource type="Script" path="res://pong.gd" id="1_dt2ug"]
-[ext_resource type="PackedScene" uid="uid://4lw8k1edt5ln" path="res://paddle.tscn" id="2_ilvhw"]
-[ext_resource type="PackedScene" uid="uid://bhb5tjef262ks" path="res://wall.tscn" id="3_ebrpx"]
-[ext_resource type="PackedScene" uid="uid://7q7nw8cc5hvn" path="res://ball.tscn" id="4_1hcgk"]
+[ext_resource type="Script" path="res://Pong/pong.gd" id="1_dt2ug"]
+[ext_resource type="PackedScene" uid="uid://4lw8k1edt5ln" path="res://Pong/paddle.tscn" id="2_ilvhw"]
+[ext_resource type="PackedScene" uid="uid://bhb5tjef262ks" path="res://Pong/wall.tscn" id="3_ebrpx"]
+[ext_resource type="PackedScene" uid="uid://7q7nw8cc5hvn" path="res://Pong/ball.tscn" id="4_1hcgk"]
 
 [node name="Pong" type="Node2D"]
 script = ExtResource("1_dt2ug")
