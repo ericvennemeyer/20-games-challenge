@@ -1,15 +1,7 @@
+class_name Ball
 extends CharacterBody2D
 
-
 const SPEED = 300.0
-
-
-func _ready() -> void:
-	var random = RandomNumberGenerator.new()
-	random.randomize()
-	var _position = Vector2(480, randi_range(80, 512))
-	var _direction = randi_range(0, 360)
-	start(_position, _direction)
 
 
 func start(_position, _direction) -> void:

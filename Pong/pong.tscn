@@ -1,12 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://coaot02c1ucky"]
+[gd_scene load_steps=8 format=3 uid="uid://coaot02c1ucky"]
 
 [ext_resource type="Script" path="res://Pong/pong.gd" id="1_dt2ug"]
+[ext_resource type="Script" path="res://Pong/score_board.gd" id="2_6oqj2"]
+[ext_resource type="FontFile" uid="uid://dydosa3pgcvjf" path="res://Pong/Assets/Fonts/Kenney High Square.ttf" id="2_85emh"]
 [ext_resource type="PackedScene" uid="uid://4lw8k1edt5ln" path="res://Pong/paddle.tscn" id="2_ilvhw"]
 [ext_resource type="PackedScene" uid="uid://bhb5tjef262ks" path="res://Pong/wall.tscn" id="3_ebrpx"]
-[ext_resource type="PackedScene" uid="uid://7q7nw8cc5hvn" path="res://Pong/ball.tscn" id="4_1hcgk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jotdw"]
+font = ExtResource("2_85emh")
+font_size = 64
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5nrju"]
+size = Vector2(66, 816)
 
 [node name="Pong" type="Node2D"]
 script = ExtResource("1_dt2ug")
+
+[node name="ScoreBoard" type="CanvasLayer" parent="."]
+script = ExtResource("2_6oqj2")
+
+[node name="P1ScoreLabel" type="Label" parent="ScoreBoard"]
+offset_left = 328.0
+offset_right = 376.0
+offset_bottom = 56.0
+text = "00"
+label_settings = SubResource("LabelSettings_jotdw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2ScoreLabel" type="Label" parent="ScoreBoard"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -376.0
+offset_right = -328.0
+offset_bottom = 56.0
+grow_horizontal = 0
+text = "00"
+label_settings = SubResource("LabelSettings_jotdw")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="LeftPaddle" parent="." instance=ExtResource("2_ilvhw")]
 position = Vector2(40, 296)
@@ -21,5 +54,23 @@ player = "player2"
 [node name="LowerWall" parent="." instance=ExtResource("3_ebrpx")]
 position = Vector2(0, 531)
 
-[node name="Ball" parent="." instance=ExtResource("4_1hcgk")]
-position = Vector2(480, 288)
+[node name="P1GoalArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P1GoalArea"]
+position = Vector2(-32, 272)
+shape = SubResource("RectangleShape2D_5nrju")
+
+[node name="P2GoalArea" type="Area2D" parent="."]
+position = Vector2(1024, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P2GoalArea"]
+position = Vector2(-32, 272)
+shape = SubResource("RectangleShape2D_5nrju")
+
+[node name="NextBallTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="point_scored" from="ScoreBoard" to="." method="_on_score_board_point_scored"]
+[connection signal="body_entered" from="P1GoalArea" to="ScoreBoard" method="_on_p_1_goal_area_body_entered"]
+[connection signal="body_entered" from="P2GoalArea" to="ScoreBoard" method="_on_p_2_goal_area_body_entered"]
+[connection signal="timeout" from="NextBallTimer" to="." method="_on_next_ball_timer_timeout"]

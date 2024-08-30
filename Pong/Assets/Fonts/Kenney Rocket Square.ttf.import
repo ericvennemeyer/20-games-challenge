@@ -1,0 +1,34 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bkjyhi4xd8dpy"
+path="res://.godot/imported/Kenney Rocket Square.ttf-bee1157d7f6972cb087d6c793fdcf6ae.fontdata"
+
+[deps]
+
+source_file="res://Pong/Assets/Fonts/Kenney Rocket Square.ttf"
+dest_files=["res://.godot/imported/Kenney Rocket Square.ttf-bee1157d7f6972cb087d6c793fdcf6ae.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=false
+disable_embedded_bitmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}
