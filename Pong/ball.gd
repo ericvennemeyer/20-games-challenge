@@ -14,3 +14,7 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	queue_free()

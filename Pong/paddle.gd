@@ -23,7 +23,7 @@ func _ready() -> void:
 			print("No player type selected for this paddle.")
 
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	var direction := Input.get_axis(paddle_up, paddle_down)
 	if direction:

@@ -34,7 +34,7 @@ func spawn_ball() -> void:
 	get_tree().root.add_child.call_deferred(new_ball)
 
 
-func _on_score_board_point_scored(losing_player: String) -> void:
+func _on_score_board_point_scored(_losing_player: String) -> void:
 	next_ball_timer.start()
 
 
