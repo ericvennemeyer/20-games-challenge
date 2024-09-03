@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+@onready var collision_sfx_player: AudioStreamPlayer = $CollisionSFXPlayer
+
 
 func start(_position, _direction) -> void:
 	rotation_degrees = _direction
@@ -14,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	var collision = move_and_collide(velocity * delta)
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
+		collision_sfx_player.play()
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:

@@ -4,6 +4,7 @@ var ball = preload("res://Pong/ball.tscn")
 var ball_position: Vector2
 var ball_direction: int
 
+@onready var victory_sfx_player: AudioStreamPlayer = $VictorySFXPlayer
 @onready var next_ball_timer: Timer = $NextBallTimer
 
 
@@ -36,6 +37,7 @@ func spawn_ball() -> void:
 
 func _on_score_board_point_scored(_losing_player: String) -> void:
 	next_ball_timer.start()
+	victory_sfx_player.play()
 
 
 func _on_next_ball_timer_timeout() -> void:

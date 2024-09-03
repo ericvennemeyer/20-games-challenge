@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://brayywmjm7vky"
+path="res://.godot/imported/Classic Old School 8 Bit Retro Game - Alarm Bell, Notification Siren 02    [004889].wav-163e5c307dfe55b28956042ecd9a872c.sample"
+
+[deps]
+
+source_file="res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game - Alarm Bell, Notification Siren 02    [004889].wav"
+dest_files=["res://.godot/imported/Classic Old School 8 Bit Retro Game - Alarm Bell, Notification Siren 02    [004889].wav-163e5c307dfe55b28956042ecd9a872c.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

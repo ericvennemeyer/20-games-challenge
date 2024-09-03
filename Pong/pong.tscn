@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://coaot02c1ucky"]
+[gd_scene load_steps=9 format=3 uid="uid://coaot02c1ucky"]
 
 [ext_resource type="Script" path="res://Pong/pong.gd" id="1_dt2ug"]
 [ext_resource type="Script" path="res://Pong/score_board.gd" id="2_6oqj2"]
 [ext_resource type="FontFile" uid="uid://dydosa3pgcvjf" path="res://Pong/Assets/Fonts/Kenney High Square.ttf" id="2_85emh"]
 [ext_resource type="PackedScene" uid="uid://4lw8k1edt5ln" path="res://Pong/paddle.tscn" id="2_ilvhw"]
+[ext_resource type="AudioStream" uid="uid://b4btw54ldnobt" path="res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game - Level or Mission Victory - Win Tune 01    [004952].wav" id="2_recad"]
 [ext_resource type="PackedScene" uid="uid://bhb5tjef262ks" path="res://Pong/wall.tscn" id="3_ebrpx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jotdw"]
@@ -15,6 +16,10 @@ size = Vector2(66, 816)
 
 [node name="Pong" type="Node2D"]
 script = ExtResource("1_dt2ug")
+
+[node name="VictorySFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_recad")
+bus = &"SFX"
 
 [node name="ScoreBoard" type="CanvasLayer" parent="."]
 script = ExtResource("2_6oqj2")

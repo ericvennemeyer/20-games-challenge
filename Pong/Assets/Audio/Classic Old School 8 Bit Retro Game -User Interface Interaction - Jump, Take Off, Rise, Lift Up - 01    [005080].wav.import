@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://cstbgvtb0oues"
+path="res://.godot/imported/Classic Old School 8 Bit Retro Game -User Interface Interaction - Jump, Take Off, Rise, Lift Up - 01    [005080].wav-2582e0a9ed1ffcb940e182ec8aefb3f9.sample"
+
+[deps]
+
+source_file="res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game -User Interface Interaction - Jump, Take Off, Rise, Lift Up - 01    [005080].wav"
+dest_files=["res://.godot/imported/Classic Old School 8 Bit Retro Game -User Interface Interaction - Jump, Take Off, Rise, Lift Up - 01    [005080].wav-2582e0a9ed1ffcb940e182ec8aefb3f9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
