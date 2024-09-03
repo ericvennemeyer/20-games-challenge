@@ -52,11 +52,11 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="LeftPaddle" parent="." instance=ExtResource("2_ilvhw")]
-position = Vector2(40, 296)
+position = Vector2(32, 296)
 player = "player1"
 
 [node name="RightPaddle" parent="." instance=ExtResource("2_ilvhw")]
-position = Vector2(920, 296)
+position = Vector2(928, 296)
 player = "player2"
 
 [node name="UpperWall" parent="." instance=ExtResource("3_ebrpx")]
