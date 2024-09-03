@@ -4,6 +4,7 @@ var ball = preload("res://Pong/ball.tscn")
 var ball_position: Vector2
 var ball_direction: int
 var spawned_ball
+var losing_player
 
 @onready var victory_sfx_player: AudioStreamPlayer = $VictorySFXPlayer
 @onready var spawn_ball_sfx_player: AudioStreamPlayer = $SpawnBallSFXPlayer
@@ -34,7 +35,13 @@ func randomize_ball_params():
 	var random = RandomNumberGenerator.new()
 	random.randomize()
 	ball_position = Vector2(480, randi_range(80, 512))
-	ball_direction = randi_range(0, 360)
+	match losing_player:
+		"player1":
+			ball_direction = randi_range(90, 270)
+		"player2":
+			ball_direction = randi_range(-90, 90)
+		_:
+			ball_direction = randi_range(0, 359)
 
 
 func spawn_ball() -> void:
@@ -46,6 +53,7 @@ func spawn_ball() -> void:
 
 
 func _on_score_board_point_scored(_losing_player: String) -> void:
+	losing_player = _losing_player
 	next_ball_timer.start()
 	victory_sfx_player.play()
 
