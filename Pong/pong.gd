@@ -3,6 +3,7 @@ extends Node2D
 var ball = preload("res://Pong/ball.tscn")
 var ball_position: Vector2
 var ball_direction: int
+var spawned_ball
 
 @onready var victory_sfx_player: AudioStreamPlayer = $VictorySFXPlayer
 @onready var spawn_ball_sfx_player: AudioStreamPlayer = $SpawnBallSFXPlayer
@@ -16,6 +17,12 @@ func _ready() -> void:
 
 func _draw() -> void:
 	draw_dashed_line(Vector2(480, 56), Vector2(480, 536), Color.WHITE, 5.0, 10.0)
+
+
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("new_ball"):
+		spawned_ball.queue_free()
+		start_game()
 
 
 func start_game() -> void:
@@ -32,8 +39,9 @@ func randomize_ball_params():
 
 func spawn_ball() -> void:
 	var new_ball = ball.instantiate()
+	spawned_ball = new_ball
 	new_ball.start(ball_position, ball_direction)
-	get_tree().root.add_child.call_deferred(new_ball)
+	add_child.call_deferred(new_ball)
 	spawn_ball_sfx_player.play()
 
 
