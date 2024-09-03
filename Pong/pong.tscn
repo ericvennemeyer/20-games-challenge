@@ -65,6 +65,8 @@ player = "player2"
 position = Vector2(0, 531)
 
 [node name="P1GoalArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="P1GoalArea"]
 position = Vector2(-32, 272)
@@ -72,6 +74,8 @@ shape = SubResource("RectangleShape2D_5nrju")
 
 [node name="P2GoalArea" type="Area2D" parent="."]
 position = Vector2(1024, 0)
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="P2GoalArea"]
 position = Vector2(-32, 272)

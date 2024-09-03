@@ -19,6 +19,9 @@ fill_to = Vector2(0.886752, 0.192308)
 [sub_resource type="CircleShape2D" id="CircleShape2D_bfned"]
 
 [node name="Ball" type="CharacterBody2D"]
+collision_layer = 2
+collision_mask = 5
+platform_floor_layers = 4294967294
 script = ExtResource("1_wfmmv")
 
 [node name="BallSFXPlayer" type="AudioStreamPlayer" parent="."]
