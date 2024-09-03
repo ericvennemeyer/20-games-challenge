@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://coaot02c1ucky"]
+[gd_scene load_steps=10 format=3 uid="uid://coaot02c1ucky"]
 
 [ext_resource type="Script" path="res://Pong/pong.gd" id="1_dt2ug"]
 [ext_resource type="Script" path="res://Pong/score_board.gd" id="2_6oqj2"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://4lw8k1edt5ln" path="res://Pong/paddle.tscn" id="2_ilvhw"]
 [ext_resource type="AudioStream" uid="uid://b4btw54ldnobt" path="res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game - Level or Mission Victory - Win Tune 01    [004952].wav" id="2_recad"]
 [ext_resource type="PackedScene" uid="uid://bhb5tjef262ks" path="res://Pong/wall.tscn" id="3_ebrpx"]
+[ext_resource type="AudioStream" uid="uid://xk2f66v1yplt" path="res://Pong/Assets/Audio/Future_Button_4.wav" id="3_yma06"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jotdw"]
 font = ExtResource("2_85emh")
@@ -19,6 +20,10 @@ script = ExtResource("1_dt2ug")
 
 [node name="VictorySFXPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_recad")
+bus = &"SFX"
+
+[node name="SpawnBallSFXPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_yma06")
 bus = &"SFX"
 
 [node name="ScoreBoard" type="CanvasLayer" parent="."]

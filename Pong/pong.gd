@@ -5,6 +5,7 @@ var ball_position: Vector2
 var ball_direction: int
 
 @onready var victory_sfx_player: AudioStreamPlayer = $VictorySFXPlayer
+@onready var spawn_ball_sfx_player: AudioStreamPlayer = $SpawnBallSFXPlayer
 @onready var next_ball_timer: Timer = $NextBallTimer
 
 
@@ -33,6 +34,7 @@ func spawn_ball() -> void:
 	var new_ball = ball.instantiate()
 	new_ball.start(ball_position, ball_direction)
 	get_tree().root.add_child.call_deferred(new_ball)
+	spawn_ball_sfx_player.play()
 
 
 func _on_score_board_point_scored(_losing_player: String) -> void:

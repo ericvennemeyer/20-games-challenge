@@ -21,7 +21,7 @@ fill_to = Vector2(0.886752, 0.192308)
 [node name="Ball" type="CharacterBody2D"]
 script = ExtResource("1_wfmmv")
 
-[node name="CollisionSFXPlayer" type="AudioStreamPlayer" parent="."]
+[node name="BallSFXPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_fgk1k")
 bus = &"SFX"
 
