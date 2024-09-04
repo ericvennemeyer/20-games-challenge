@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://coaot02c1ucky"]
+[gd_scene load_steps=14 format=3 uid="uid://coaot02c1ucky"]
 
 [ext_resource type="Script" path="res://Pong/pong.gd" id="1_dt2ug"]
 [ext_resource type="Script" path="res://Pong/score_board.gd" id="2_6oqj2"]
@@ -7,6 +7,10 @@
 [ext_resource type="AudioStream" uid="uid://b4btw54ldnobt" path="res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game - Level or Mission Victory - Win Tune 01    [004952].wav" id="2_recad"]
 [ext_resource type="PackedScene" uid="uid://bhb5tjef262ks" path="res://Pong/wall.tscn" id="3_ebrpx"]
 [ext_resource type="AudioStream" uid="uid://xk2f66v1yplt" path="res://Pong/Assets/Audio/Future_Button_4.wav" id="3_yma06"]
+[ext_resource type="Theme" uid="uid://ohu205ygidax" path="res://Pong/pong_default_theme.tres" id="4_36xj6"]
+[ext_resource type="Script" path="res://Pong/pause_menu.gd" id="4_stker"]
+[ext_resource type="AudioStream" uid="uid://cstbgvtb0oues" path="res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game -User Interface Interaction - Jump, Take Off, Rise, Lift Up - 01    [005080].wav" id="5_w8asg"]
+[ext_resource type="AudioStream" uid="uid://d3b7kh7snfk26" path="res://Pong/Assets/Audio/Future_Button_9.wav" id="6_52f3q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jotdw"]
 font = ExtResource("2_85emh")
@@ -25,6 +29,76 @@ bus = &"SFX"
 [node name="SpawnBallSFXPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_yma06")
 bus = &"SFX"
+
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+process_mode = 2
+layer = 5
+visible = false
+script = ExtResource("4_stker")
+
+[node name="UIMoveSFXPlayer" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("5_w8asg")
+bus = &"SFX"
+
+[node name="UISelectSFXPlayer" type="AudioStreamPlayer" parent="PauseMenu"]
+stream = ExtResource("6_52f3q")
+bus = &"SFX"
+
+[node name="Panel" type="Panel" parent="PauseMenu"]
+z_index = -1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PauseMenu"]
+custom_minimum_size = Vector2(300, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -150.0
+offset_right = 150.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PauseMenu/MarginContainer"]
+custom_minimum_size = Vector2(225, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_top = NodePath("../QuitButton")
+theme = ExtResource("4_36xj6")
+text = "RESUME"
+
+[node name="NewGameButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_36xj6")
+text = "NEW GAME"
+
+[node name="MenuButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_36xj6")
+text = "MENU"
+
+[node name="QuitButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ResumeButton")
+theme = ExtResource("4_36xj6")
+text = "QUIT"
+
+[node name="Panel" type="Panel" parent="PauseMenu/MarginContainer"]
+z_index = -1
+layout_mode = 2
+theme = ExtResource("4_36xj6")
 
 [node name="ScoreBoard" type="CanvasLayer" parent="."]
 script = ExtResource("2_6oqj2")
@@ -84,6 +158,14 @@ shape = SubResource("RectangleShape2D_5nrju")
 [node name="NextBallTimer" type="Timer" parent="."]
 one_shot = true
 
+[connection signal="gui_input" from="PauseMenu/MarginContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_gui_input"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/ResumeButton" to="PauseMenu" method="_on_resume_button_pressed"]
+[connection signal="gui_input" from="PauseMenu/MarginContainer/VBoxContainer/NewGameButton" to="PauseMenu" method="_on_new_game_button_gui_input"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/NewGameButton" to="PauseMenu" method="_on_new_game_button_pressed"]
+[connection signal="gui_input" from="PauseMenu/MarginContainer/VBoxContainer/MenuButton" to="PauseMenu" method="_on_menu_button_gui_input"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/MenuButton" to="PauseMenu" method="_on_menu_button_pressed"]
+[connection signal="gui_input" from="PauseMenu/MarginContainer/VBoxContainer/QuitButton" to="PauseMenu" method="_on_quit_button_gui_input"]
+[connection signal="pressed" from="PauseMenu/MarginContainer/VBoxContainer/QuitButton" to="PauseMenu" method="_on_quit_button_pressed"]
 [connection signal="point_scored" from="ScoreBoard" to="." method="_on_score_board_point_scored"]
 [connection signal="body_entered" from="P1GoalArea" to="ScoreBoard" method="_on_p_1_goal_area_body_entered"]
 [connection signal="body_entered" from="P2GoalArea" to="ScoreBoard" method="_on_p_2_goal_area_body_entered"]

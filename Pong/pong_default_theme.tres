@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://ohu205ygidax"]
+
+[ext_resource type="FontFile" uid="uid://cwbxtqo0ad1bu" path="res://Pong/Assets/Fonts/Kenney Pixel Square.ttf" id="1_yojac"]
+[ext_resource type="StyleBox" uid="uid://chykpqtaq1u1u" path="res://Pong/black_panel_style_box_flat.tres" id="2_788l6"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sq8op"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcfab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yvhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6qu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[resource]
+Button/colors/font_color = Color(0.710048, 0.710047, 0.710047, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("1_yojac")
+Button/styles/focus = SubResource("StyleBoxEmpty_sq8op")
+Button/styles/hover = SubResource("StyleBoxEmpty_vcfab")
+Button/styles/normal = SubResource("StyleBoxEmpty_0yvhh")
+Button/styles/pressed = SubResource("StyleBoxFlat_mg6qu")
+Panel/styles/panel = ExtResource("2_788l6")

@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_s5h2f"]
 size = Vector2(16, 82)
 
-[node name="Paddle" type="CharacterBody2D"]
+[node name="Paddle" type="CharacterBody2D" groups=["paddles"]]
 collision_mask = 4
 platform_floor_layers = 4294967293
 script = ExtResource("1_gieiw")

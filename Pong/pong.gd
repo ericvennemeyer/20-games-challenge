@@ -9,6 +9,7 @@ var losing_player
 @onready var victory_sfx_player: AudioStreamPlayer = $VictorySFXPlayer
 @onready var spawn_ball_sfx_player: AudioStreamPlayer = $SpawnBallSFXPlayer
 @onready var next_ball_timer: Timer = $NextBallTimer
+@onready var pause_menu: CanvasLayer = $PauseMenu
 
 
 func _ready() -> void:
@@ -24,6 +25,8 @@ func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("new_ball"):
 		spawned_ball.queue_free()
 		start_game()
+	elif Input.is_action_just_pressed("pause"):
+		pause_menu.pause_game()
 
 
 func start_game() -> void:
@@ -49,7 +52,12 @@ func spawn_ball() -> void:
 	spawned_ball = new_ball
 	new_ball.start(ball_position, ball_direction)
 	add_child.call_deferred(new_ball)
+	update_paddle_reference_to_ball(new_ball)
 	spawn_ball_sfx_player.play()
+
+
+func update_paddle_reference_to_ball(ball: Ball) -> void:
+	get_tree().call_group("paddles", "update_ball_reference", ball)
 
 
 func _on_score_board_point_scored(_losing_player: String) -> void:

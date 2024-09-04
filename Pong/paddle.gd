@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 
 @export_enum("player1", "player2", "computer") var player: String
@@ -24,11 +23,18 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
-	# Get the input direction and handle the movement/deceleration.
-	var direction := Input.get_axis(paddle_up, paddle_down)
-	if direction:
-		velocity.y = direction * SPEED
+	if player == "computer":
+		pass
 	else:
-		velocity.y = move_toward(velocity.y, 0, SPEED)
+		# Get the input direction and handle the movement/deceleration.
+		var direction := Input.get_axis(paddle_up, paddle_down)
+		if direction:
+			velocity.y = direction * SPEED
+		else:
+			velocity.y = move_toward(velocity.y, 0, SPEED)
 
 	move_and_slide()
+
+
+func update_ball_reference(ball: Ball) -> void:
+	pass
