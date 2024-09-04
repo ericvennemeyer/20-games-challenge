@@ -31,9 +31,7 @@ func _physics_process(_delta: float) -> void:
 	if player == "computer":
 		if is_instance_valid(ball):
 			var direction = position.direction_to(ball.position)
-			last_ball_distance = current_ball_distance
-			current_ball_distance = position.distance_to(ball.position)
-			if current_ball_distance < last_ball_distance:
+			if check_ball_moving_toward_player():
 				velocity.y = direction.y * computer_offensive_speed
 			else:
 				velocity.y = direction.y * computer_defensive_speed
@@ -50,6 +48,15 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
+func check_ball_moving_toward_player():
+	last_ball_distance = current_ball_distance
+	current_ball_distance = position.distance_to(ball.position)
+	if current_ball_distance < last_ball_distance:
+		return true
+	else:
+		return false
+
+
 func create_computer_opponent() -> void:
 	var random = RandomNumberGenerator.new()
 	random.randomize()
@@ -61,7 +68,6 @@ func create_computer_opponent() -> void:
 
 func update_ball_reference(_ball: Ball) -> void:
 	ball = _ball
-	
 	# Re-randomize computer opponent speed stats after each point
 	if player == "computer":
 		create_computer_opponent()
