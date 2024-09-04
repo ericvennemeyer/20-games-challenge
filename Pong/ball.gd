@@ -1,7 +1,7 @@
 class_name Ball
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED = 450.0
 
 @onready var ball_sfx_player: AudioStreamPlayer = $BallSFXPlayer
 
