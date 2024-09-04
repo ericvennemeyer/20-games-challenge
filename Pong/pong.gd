@@ -22,7 +22,7 @@ func _draw() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("new_ball"):
+	if Input.is_action_just_pressed("new_ball") and is_instance_valid(spawned_ball):
 		spawned_ball.queue_free()
 		start_game()
 	elif Input.is_action_just_pressed("pause"):
@@ -56,8 +56,8 @@ func spawn_ball() -> void:
 	spawn_ball_sfx_player.play()
 
 
-func update_paddle_reference_to_ball(ball: Ball) -> void:
-	get_tree().call_group("paddles", "update_ball_reference", ball)
+func update_paddle_reference_to_ball(_ball: Ball) -> void:
+	get_tree().call_group("paddles", "update_ball_reference", _ball)
 
 
 func _on_score_board_point_scored(_losing_player: String) -> void:

@@ -10,7 +10,6 @@ func start(_position, _direction) -> void:
 	rotation = deg_to_rad(_direction)
 	position = _position
 	velocity = Vector2(SPEED, 0).rotated(rotation)
-	print(velocity)
 
 
 func _physics_process(delta: float) -> void:

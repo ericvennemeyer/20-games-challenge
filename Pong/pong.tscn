@@ -131,7 +131,7 @@ player = "player1"
 
 [node name="RightPaddle" parent="." instance=ExtResource("2_ilvhw")]
 position = Vector2(928, 296)
-player = "player2"
+player = "computer"
 
 [node name="UpperWall" parent="." instance=ExtResource("3_ebrpx")]
 
