@@ -36,6 +36,7 @@ process_mode = 2
 layer = 5
 visible = false
 script = ExtResource("4_stker")
+pong_main_menu = "res://Pong/pong_main_menu.tscn"
 
 [node name="UIMoveSFXPlayer" type="AudioStreamPlayer" parent="PauseMenu"]
 stream = ExtResource("5_w8asg")

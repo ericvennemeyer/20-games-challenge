@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://caof4qr8jgf6n"]
+[gd_scene load_steps=3 format=3 uid="uid://caof4qr8jgf6n"]
 
 [ext_resource type="Script" path="res://pong_main_menu.gd" id="1_o4t1h"]
 [ext_resource type="Theme" uid="uid://ohu205ygidax" path="res://Pong/pong_default_theme.tres" id="2_avcgp"]
-[ext_resource type="PackedScene" uid="uid://coaot02c1ucky" path="res://Pong/pong.tscn" id="2_rrsv5"]
 
 [node name="PongMainMenu" type="Control"]
 layout_mode = 3
@@ -12,7 +11,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o4t1h")
-game_scene = ExtResource("2_rrsv5")
+game_scene = "res://Pong/pong.tscn"
 
 [node name="PongTitleLabel" type="Label" parent="."]
 layout_mode = 1
@@ -103,14 +102,14 @@ custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [node name="Play_Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(180, 60)
+custom_minimum_size = Vector2(140, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_avcgp")
 text = "PLAY"
 
 [node name="Quit_Button" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(180, 60)
+custom_minimum_size = Vector2(140, 60)
 layout_mode = 2
 size_flags_horizontal = 4
 theme = ExtResource("2_avcgp")

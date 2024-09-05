@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+@export_file("*.tscn") var pong_main_menu: String
+
 @onready var resume_button: Button = $MarginContainer/VBoxContainer/ResumeButton
 @onready var ui_move_sfx_player: AudioStreamPlayer = $UIMoveSFXPlayer
 @onready var ui_select_sfx_player: AudioStreamPlayer = $UISelectSFXPlayer
@@ -30,7 +32,8 @@ func _on_new_game_button_pressed() -> void:
 
 
 func _on_menu_button_pressed() -> void:
-	pass # Replace with function body.
+	unpause_game()
+	get_tree().change_scene_to_file(pong_main_menu)
 
 
 func _on_quit_button_pressed() -> void:

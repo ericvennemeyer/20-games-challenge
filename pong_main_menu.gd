@@ -1,6 +1,6 @@
 extends Control
 
-@export var game_scene: PackedScene
+@export_file("*.tscn") var game_scene: String
 
 @onready var play_button: Button = $VBoxContainer/Play_Button
 
@@ -19,7 +19,7 @@ func _on_p_2_option_button_item_selected(index: int) -> void:
 
 
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_packed(game_scene)
+	get_tree().change_scene_to_file(game_scene)
 
 
 func _on_quit_button_pressed() -> void:
