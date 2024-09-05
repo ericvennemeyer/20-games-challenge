@@ -1,0 +1,122 @@
+[gd_scene load_steps=4 format=3 uid="uid://caof4qr8jgf6n"]
+
+[ext_resource type="Script" path="res://pong_main_menu.gd" id="1_o4t1h"]
+[ext_resource type="Theme" uid="uid://ohu205ygidax" path="res://Pong/pong_default_theme.tres" id="2_avcgp"]
+[ext_resource type="PackedScene" uid="uid://coaot02c1ucky" path="res://Pong/pong.tscn" id="2_rrsv5"]
+
+[node name="PongMainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o4t1h")
+game_scene = ExtResource("2_rrsv5")
+
+[node name="PongTitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -120.0
+offset_top = 48.0
+offset_right = 120.0
+offset_bottom = 168.0
+grow_horizontal = 2
+theme = ExtResource("2_avcgp")
+theme_override_font_sizes/font_size = 80
+text = "PONG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer_Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 140)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Player1_Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_avcgp")
+theme_override_font_sizes/font_size = 32
+text = "PLAYER 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P1_OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_avcgp")
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "HUMAN"
+popup/item_1/text = "COMPUTER"
+popup/item_1/id = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+theme = ExtResource("2_avcgp")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="Player2_Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_avcgp")
+theme_override_font_sizes/font_size = 32
+text = "PLAYER 2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2_OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme = ExtResource("2_avcgp")
+alignment = 1
+selected = 0
+item_count = 2
+popup/item_0/text = "HUMAN"
+popup/item_1/text = "COMPUTER"
+popup/item_1/id = 1
+
+[node name="Spacer_Control2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Play_Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_avcgp")
+text = "PLAY"
+
+[node name="Quit_Button" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(180, 60)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_avcgp")
+text = "QUIT"
+
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer/P1_OptionButton" to="." method="_on_p_1_option_button_item_selected"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer2/P2_OptionButton" to="." method="_on_p_2_option_button_item_selected"]
+[connection signal="pressed" from="VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]
