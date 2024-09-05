@@ -11,11 +11,11 @@ func _ready() -> void:
 
 
 func _on_p_1_option_button_item_selected(index: int) -> void:
-	pass # Replace with function body.
+	GlobalPong.set_player_type("p1", index)
 
 
 func _on_p_2_option_button_item_selected(index: int) -> void:
-	pass # Replace with function body.
+	GlobalPong.set_player_type("p2", index)
 
 
 func _on_play_button_pressed() -> void:

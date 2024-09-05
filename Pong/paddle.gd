@@ -2,7 +2,9 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
-@export_enum("player1", "player2", "computer") var player: String
+@export_enum("player1", "player2") var player: String
+
+var player_type: int
 
 var paddle_up: String
 var paddle_down: String
@@ -18,17 +20,18 @@ func _ready() -> void:
 		"player1":
 			paddle_up = "P1_paddle_up"
 			paddle_down = "P1_paddle_down"
+			player_type = GlobalPong.get_player_type("p1")
 		"player2":
 			paddle_up = "P2_paddle_up"
 			paddle_down = "P2_paddle_down"
-		"computer":
-			create_computer_opponent()
+			player_type = GlobalPong.get_player_type("p2")
 		_:
 			print("No player type selected for this paddle.")
 
 
 func _physics_process(_delta: float) -> void:
-	if player == "computer":
+	# Check if player type is 1, i.e. "computer"
+	if player_type == 1:
 		if is_instance_valid(ball):
 			var direction = position.direction_to(ball.position)
 			if check_ball_moving_toward_player():
@@ -37,6 +40,7 @@ func _physics_process(_delta: float) -> void:
 				velocity.y = direction.y * computer_defensive_speed
 		else:
 			velocity.y = move_toward(velocity.y, 0, computer_defensive_speed)
+	# Else player type is 0, i.e. "human"
 	else:
 		# Get the input direction and handle the movement/deceleration.
 		var direction := Input.get_axis(paddle_up, paddle_down)
@@ -68,6 +72,6 @@ func create_computer_opponent() -> void:
 
 func update_ball_reference(_ball: Ball) -> void:
 	ball = _ball
-	# Re-randomize computer opponent speed stats after each point
-	if player == "computer":
+	# If player is computer, randomize computer opponent speed stats after each point
+	if player_type == 1:
 		create_computer_opponent()

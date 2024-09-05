@@ -1,14 +1,15 @@
 extends Node
 
-var players = {"p1": "human",
-			   "p2": "human"}
+# For player type, 0 = human and 1 = computer
+var players = {"p1": 0,
+			   "p2": 0}
 
 
 func _ready() -> void:
 	pass # Replace with function body.
 
 
-func set_player_type(player: String, player_type: String) -> void:
+func set_player_type(player: String, player_type: int) -> void:
 	players[player] = player_type
 
 
