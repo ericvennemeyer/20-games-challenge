@@ -21,6 +21,7 @@ size = Vector2(66, 816)
 
 [node name="Pong" type="Node2D"]
 script = ExtResource("1_dt2ug")
+metadata/_edit_horizontal_guides_ = [30.0]
 
 [node name="VictorySFXPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_recad")
@@ -103,6 +104,16 @@ theme = ExtResource("4_36xj6")
 [node name="ScoreBoard" type="CanvasLayer" parent="."]
 script = ExtResource("2_6oqj2")
 
+[node name="P1Label" type="Label" parent="ScoreBoard"]
+offset_left = 24.0
+offset_top = 5.0
+offset_right = 208.0
+offset_bottom = 53.0
+theme = ExtResource("4_36xj6")
+theme_override_font_sizes/font_size = 24
+text = "P1: HUMAN"
+vertical_alignment = 1
+
 [node name="P1ScoreLabel" type="Label" parent="ScoreBoard"]
 offset_left = 328.0
 offset_right = 376.0
@@ -110,6 +121,21 @@ offset_bottom = 56.0
 text = "00"
 label_settings = SubResource("LabelSettings_jotdw")
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="P2Label" type="Label" parent="ScoreBoard"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -213.0
+offset_top = 5.0
+offset_right = -21.0
+offset_bottom = 53.0
+grow_horizontal = 0
+theme = ExtResource("4_36xj6")
+theme_override_font_sizes/font_size = 24
+text = "P2: HUMAN"
+horizontal_alignment = 2
 vertical_alignment = 1
 
 [node name="P2ScoreLabel" type="Label" parent="ScoreBoard"]
