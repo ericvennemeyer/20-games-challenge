@@ -3,8 +3,6 @@ extends CanvasLayer
 @export_file("*.tscn") var pong_main_menu: String
 
 @onready var resume_button: Button = $MarginContainer/VBoxContainer/ResumeButton
-@onready var ui_move_sfx_player: AudioStreamPlayer = $UIMoveSFXPlayer
-@onready var ui_select_sfx_player: AudioStreamPlayer = $UISelectSFXPlayer
 
 
 func _ready() -> void:
@@ -41,23 +39,16 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_resume_button_gui_input(event: InputEvent) -> void:
-	play_ui_sfx(event)
+	GlobalPong.play_ui_sfx(event)
 
 
 func _on_new_game_button_gui_input(event: InputEvent) -> void:
-	play_ui_sfx(event)
+	GlobalPong.play_ui_sfx(event)
 
 
 func _on_menu_button_gui_input(event: InputEvent) -> void:
-	play_ui_sfx(event)
+	GlobalPong.play_ui_sfx(event)
 
 
 func _on_quit_button_gui_input(event: InputEvent) -> void:
-	play_ui_sfx(event)
-
-
-func play_ui_sfx(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
-		ui_move_sfx_player.play()
-	elif event.is_action_pressed("ui_accept"):
-		ui_select_sfx_player.play()
+	GlobalPong.play_ui_sfx(event)

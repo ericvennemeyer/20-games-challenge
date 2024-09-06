@@ -24,3 +24,19 @@ func _on_play_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	pass # Replace with function body.
+
+
+func _on_p_1_option_button_gui_input(event: InputEvent) -> void:
+	GlobalPong.play_ui_sfx(event)
+
+
+func _on_p_2_option_button_gui_input(event: InputEvent) -> void:
+	GlobalPong.play_ui_sfx(event)
+
+
+func _on_play_button_gui_input(event: InputEvent) -> void:
+	GlobalPong.play_ui_sfx(event)
+
+
+func _on_quit_button_gui_input(event: InputEvent) -> void:
+	GlobalPong.play_ui_sfx(event)

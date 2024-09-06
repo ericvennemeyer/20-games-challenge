@@ -115,7 +115,11 @@ size_flags_horizontal = 4
 theme = ExtResource("2_avcgp")
 text = "QUIT"
 
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/VBoxContainer/P1_OptionButton" to="." method="_on_p_1_option_button_gui_input"]
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer/P1_OptionButton" to="." method="_on_p_1_option_button_item_selected"]
+[connection signal="gui_input" from="VBoxContainer/HBoxContainer/VBoxContainer2/P2_OptionButton" to="." method="_on_p_2_option_button_gui_input"]
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer2/P2_OptionButton" to="." method="_on_p_2_option_button_item_selected"]
+[connection signal="gui_input" from="VBoxContainer/Play_Button" to="." method="_on_play_button_gui_input"]
 [connection signal="pressed" from="VBoxContainer/Play_Button" to="." method="_on_play_button_pressed"]
+[connection signal="gui_input" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_gui_input"]
 [connection signal="pressed" from="VBoxContainer/Quit_Button" to="." method="_on_quit_button_pressed"]

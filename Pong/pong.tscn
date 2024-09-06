@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://coaot02c1ucky"]
+[gd_scene load_steps=12 format=3 uid="uid://coaot02c1ucky"]
 
 [ext_resource type="Script" path="res://Pong/pong.gd" id="1_dt2ug"]
 [ext_resource type="Script" path="res://Pong/score_board.gd" id="2_6oqj2"]
@@ -9,8 +9,6 @@
 [ext_resource type="AudioStream" uid="uid://xk2f66v1yplt" path="res://Pong/Assets/Audio/Future_Button_4.wav" id="3_yma06"]
 [ext_resource type="Theme" uid="uid://ohu205ygidax" path="res://Pong/pong_default_theme.tres" id="4_36xj6"]
 [ext_resource type="Script" path="res://Pong/pause_menu.gd" id="4_stker"]
-[ext_resource type="AudioStream" uid="uid://cstbgvtb0oues" path="res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game -User Interface Interaction - Jump, Take Off, Rise, Lift Up - 01    [005080].wav" id="5_w8asg"]
-[ext_resource type="AudioStream" uid="uid://d3b7kh7snfk26" path="res://Pong/Assets/Audio/Future_Button_9.wav" id="6_52f3q"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jotdw"]
 font = ExtResource("2_85emh")
@@ -37,14 +35,6 @@ layer = 5
 visible = false
 script = ExtResource("4_stker")
 pong_main_menu = "res://Pong/pong_main_menu.tscn"
-
-[node name="UIMoveSFXPlayer" type="AudioStreamPlayer" parent="PauseMenu"]
-stream = ExtResource("5_w8asg")
-bus = &"SFX"
-
-[node name="UISelectSFXPlayer" type="AudioStreamPlayer" parent="PauseMenu"]
-stream = ExtResource("6_52f3q")
-bus = &"SFX"
 
 [node name="Panel" type="Panel" parent="PauseMenu"]
 z_index = -1
