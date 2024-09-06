@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bd8uun8hooj53"
+path="res://.godot/imported/Kara Square - 8-Bit Side-Scrolling Action.wav-f7c2d4c97db150b746d1a2bdaf1030d9.sample"
+
+[deps]
+
+source_file="res://20GamesMain/Assets/Music/Kara Square - 8-Bit Side-Scrolling Action.wav"
+dest_files=["res://.godot/imported/Kara Square - 8-Bit Side-Scrolling Action.wav-f7c2d4c97db150b746d1a2bdaf1030d9.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

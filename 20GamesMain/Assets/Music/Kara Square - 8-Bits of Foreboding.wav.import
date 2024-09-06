@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxioojf7de4qe"
+path="res://.godot/imported/Kara Square - 8-Bits of Foreboding.wav-f32fbc37c8f3ba0def8880a665155bb0.sample"
+
+[deps]
+
+source_file="res://20GamesMain/Assets/Music/Kara Square - 8-Bits of Foreboding.wav"
+dest_files=["res://.godot/imported/Kara Square - 8-Bits of Foreboding.wav-f32fbc37c8f3ba0def8880a665155bb0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

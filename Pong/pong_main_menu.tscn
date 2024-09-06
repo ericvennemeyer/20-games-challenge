@@ -1,7 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://caof4qr8jgf6n"]
+[gd_scene load_steps=9 format=3 uid="uid://caof4qr8jgf6n"]
 
-[ext_resource type="Script" path="res://pong_main_menu.gd" id="1_o4t1h"]
-[ext_resource type="Theme" uid="uid://ohu205ygidax" path="res://Pong/pong_default_theme.tres" id="2_avcgp"]
+[ext_resource type="Script" path="res://Pong/pong_main_menu.gd" id="1_o4t1h"]
+[ext_resource type="FontFile" uid="uid://cwbxtqo0ad1bu" path="res://Pong/Assets/Fonts/Kenney Pixel Square.ttf" id="2_865ca"]
+[ext_resource type="StyleBox" uid="uid://chykpqtaq1u1u" path="res://Pong/black_panel_style_box_flat.tres" id="3_70n3x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsxn4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_right = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcfab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yvhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6qu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_cx4m1"]
+Button/colors/font_color = Color(0.710048, 0.710047, 0.710047, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("2_865ca")
+Button/styles/focus = SubResource("StyleBoxFlat_vsxn4")
+Button/styles/hover = SubResource("StyleBoxEmpty_vcfab")
+Button/styles/normal = SubResource("StyleBoxEmpty_0yvhh")
+Button/styles/pressed = SubResource("StyleBoxFlat_mg6qu")
+Label/fonts/font = ExtResource("2_865ca")
+Panel/styles/panel = ExtResource("3_70n3x")
+PopupMenu/fonts/font = ExtResource("2_865ca")
+PopupMenu/styles/panel = ExtResource("3_70n3x")
 
 [node name="PongMainMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +48,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_o4t1h")
 player_controls_scene = "res://Pong/player_controls_display.tscn"
+twenty_games_main_menu = "res://20GamesMain/20_games_main.tscn"
 
 [node name="PongTitleLabel" type="Label" parent="."]
 layout_mode = 1
@@ -23,7 +60,7 @@ offset_top = 48.0
 offset_right = 120.0
 offset_bottom = 168.0
 grow_horizontal = 2
-theme = ExtResource("2_avcgp")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 80
 text = "PONG"
 horizontal_alignment = 1
@@ -55,7 +92,7 @@ layout_mode = 2
 
 [node name="Player1_Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_avcgp")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 32
 text = "PLAYER 1"
 horizontal_alignment = 1
@@ -63,7 +100,7 @@ vertical_alignment = 1
 
 [node name="P1_OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_avcgp")
+theme = SubResource("Theme_cx4m1")
 alignment = 1
 selected = 0
 item_count = 2
@@ -74,14 +111,14 @@ popup/item_1/id = 1
 [node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 0)
 layout_mode = 2
-theme = ExtResource("2_avcgp")
+theme = SubResource("Theme_cx4m1")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
 [node name="Player2_Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("2_avcgp")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 32
 text = "PLAYER 2"
 horizontal_alignment = 1
@@ -89,7 +126,7 @@ vertical_alignment = 1
 
 [node name="P2_OptionButton" type="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
-theme = ExtResource("2_avcgp")
+theme = SubResource("Theme_cx4m1")
 alignment = 1
 selected = 0
 item_count = 2
@@ -105,14 +142,14 @@ layout_mode = 2
 custom_minimum_size = Vector2(140, 60)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_avcgp")
+theme = SubResource("Theme_cx4m1")
 text = "PLAY"
 
 [node name="Quit_Button" type="Button" parent="VBoxContainer"]
 custom_minimum_size = Vector2(140, 60)
 layout_mode = 2
 size_flags_horizontal = 4
-theme = ExtResource("2_avcgp")
+theme = SubResource("Theme_cx4m1")
 text = "QUIT"
 
 [connection signal="gui_input" from="VBoxContainer/HBoxContainer/VBoxContainer/P1_OptionButton" to="." method="_on_p_1_option_button_gui_input"]

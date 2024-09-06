@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export_file("*.tscn") var pong_main_menu: String
+@export_file("*.tscn") var twenty_games_main_menu: String
 
 @onready var resume_button: Button = $MarginContainer/VBoxContainer/ResumeButton
 
@@ -35,7 +36,8 @@ func _on_menu_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	pass # Replace with function body.
+	unpause_game()
+	get_tree().change_scene_to_file(twenty_games_main_menu)
 
 
 func _on_resume_button_gui_input(event: InputEvent) -> void:

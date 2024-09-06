@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://coaot02c1ucky"]
+[gd_scene load_steps=18 format=3 uid="uid://coaot02c1ucky"]
 
 [ext_resource type="Script" path="res://Pong/pong.gd" id="1_dt2ug"]
 [ext_resource type="Script" path="res://Pong/score_board.gd" id="2_6oqj2"]
@@ -7,8 +7,44 @@
 [ext_resource type="AudioStream" uid="uid://b4btw54ldnobt" path="res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game - Level or Mission Victory - Win Tune 01    [004952].wav" id="2_recad"]
 [ext_resource type="PackedScene" uid="uid://bhb5tjef262ks" path="res://Pong/wall.tscn" id="3_ebrpx"]
 [ext_resource type="AudioStream" uid="uid://xk2f66v1yplt" path="res://Pong/Assets/Audio/Future_Button_4.wav" id="3_yma06"]
-[ext_resource type="Theme" uid="uid://ohu205ygidax" path="res://Pong/pong_default_theme.tres" id="4_36xj6"]
 [ext_resource type="Script" path="res://Pong/pause_menu.gd" id="4_stker"]
+[ext_resource type="FontFile" uid="uid://cwbxtqo0ad1bu" path="res://Pong/Assets/Fonts/Kenney Pixel Square.ttf" id="5_el52k"]
+[ext_resource type="StyleBox" uid="uid://chykpqtaq1u1u" path="res://Pong/black_panel_style_box_flat.tres" id="6_isw3w"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsxn4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_right = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcfab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yvhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6qu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_cx4m1"]
+Button/colors/font_color = Color(0.710048, 0.710047, 0.710047, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("5_el52k")
+Button/styles/focus = SubResource("StyleBoxFlat_vsxn4")
+Button/styles/hover = SubResource("StyleBoxEmpty_vcfab")
+Button/styles/normal = SubResource("StyleBoxEmpty_0yvhh")
+Button/styles/pressed = SubResource("StyleBoxFlat_mg6qu")
+Label/fonts/font = ExtResource("5_el52k")
+Panel/styles/panel = ExtResource("6_isw3w")
+PopupMenu/fonts/font = ExtResource("5_el52k")
+PopupMenu/styles/panel = ExtResource("6_isw3w")
 
 [sub_resource type="LabelSettings" id="LabelSettings_jotdw"]
 font = ExtResource("2_85emh")
@@ -35,6 +71,7 @@ layer = 5
 visible = false
 script = ExtResource("4_stker")
 pong_main_menu = "res://Pong/pong_main_menu.tscn"
+twenty_games_main_menu = "res://20GamesMain/20_games_main.tscn"
 
 [node name="Panel" type="Panel" parent="PauseMenu"]
 z_index = -1
@@ -68,29 +105,29 @@ alignment = 1
 [node name="ResumeButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_top = NodePath("../QuitButton")
-theme = ExtResource("4_36xj6")
+theme = SubResource("Theme_cx4m1")
 text = "RESUME"
 
 [node name="NewGameButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_36xj6")
+theme = SubResource("Theme_cx4m1")
 text = "NEW GAME"
 
 [node name="MenuButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("4_36xj6")
+theme = SubResource("Theme_cx4m1")
 text = "MENU"
 
 [node name="QuitButton" type="Button" parent="PauseMenu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ResumeButton")
-theme = ExtResource("4_36xj6")
+theme = SubResource("Theme_cx4m1")
 text = "QUIT"
 
 [node name="Panel" type="Panel" parent="PauseMenu/MarginContainer"]
 z_index = -1
 layout_mode = 2
-theme = ExtResource("4_36xj6")
+theme = SubResource("Theme_cx4m1")
 
 [node name="ScoreBoard" type="CanvasLayer" parent="."]
 script = ExtResource("2_6oqj2")
@@ -100,7 +137,7 @@ offset_left = 24.0
 offset_top = 5.0
 offset_right = 208.0
 offset_bottom = 53.0
-theme = ExtResource("4_36xj6")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "P1: HUMAN"
 vertical_alignment = 1
@@ -123,7 +160,7 @@ offset_top = 5.0
 offset_right = -21.0
 offset_bottom = 53.0
 grow_horizontal = 0
-theme = ExtResource("4_36xj6")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "P2: HUMAN"
 horizontal_alignment = 2

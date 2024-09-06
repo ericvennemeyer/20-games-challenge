@@ -1,0 +1,44 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cbl87heqdty7v"]
+
+[ext_resource type="FontFile" uid="uid://dsbk45sb2ovsd" path="res://Pong/Assets/Fonts/Kenney Mini Square.ttf" id="1_82w55"]
+[ext_resource type="StyleBox" uid="uid://nviqf7bwgrxa" path="res://20GamesMain/20GamesMain_Button_Focus_Stylebox.tres" id="2_2k227"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tt312"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hnqu6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_color = Color(1, 0.509804, 0.843137, 1)
+expand_margin_left = 7.0
+expand_margin_bottom = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fyimt"]
+bg_color = Color(1, 0.509804, 0.843137, 1)
+border_width_left = 5
+border_color = Color(1, 0.509804, 0.843137, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jhkyg"]
+bg_color = Color(1, 0.509804, 0.843137, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.95, 0.95, 0.95, 0)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_bottom = 1.0
+
+[resource]
+Button/font_sizes/font_size = 16
+Button/fonts/font = ExtResource("1_82w55")
+Button/styles/disabled = null
+Button/styles/focus = ExtResource("2_2k227")
+Button/styles/hover = SubResource("StyleBoxEmpty_tt312")
+Button/styles/normal = SubResource("StyleBoxFlat_hnqu6")
+Button/styles/pressed = SubResource("StyleBoxFlat_fyimt")
+HSeparator/constants/separation = 5
+Label/font_sizes/font_size = 24
+Label/fonts/font = ExtResource("1_82w55")
+TVButton/base_type = &"Button"
+TVButton/styles/focus = SubResource("StyleBoxFlat_jhkyg")

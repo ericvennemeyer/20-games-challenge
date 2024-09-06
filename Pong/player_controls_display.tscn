@@ -1,7 +1,43 @@
-[gd_scene load_steps=3 format=3 uid="uid://cq6700d67fcw5"]
+[gd_scene load_steps=9 format=3 uid="uid://cq6700d67fcw5"]
 
 [ext_resource type="Script" path="res://Pong/player_controls_display.gd" id="1_was55"]
-[ext_resource type="Theme" uid="uid://ohu205ygidax" path="res://Pong/pong_default_theme.tres" id="2_3ajda"]
+[ext_resource type="FontFile" uid="uid://cwbxtqo0ad1bu" path="res://Pong/Assets/Fonts/Kenney Pixel Square.ttf" id="2_wibb7"]
+[ext_resource type="StyleBox" uid="uid://chykpqtaq1u1u" path="res://Pong/black_panel_style_box_flat.tres" id="3_uum85"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsxn4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_right = 3
+border_color = Color(1, 1, 1, 1)
+expand_margin_left = 6.0
+expand_margin_right = 6.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vcfab"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0yvhh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mg6qu"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="Theme" id="Theme_cx4m1"]
+Button/colors/font_color = Color(0.710048, 0.710047, 0.710047, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/font_sizes/font_size = 32
+Button/fonts/font = ExtResource("2_wibb7")
+Button/styles/focus = SubResource("StyleBoxFlat_vsxn4")
+Button/styles/hover = SubResource("StyleBoxEmpty_vcfab")
+Button/styles/normal = SubResource("StyleBoxEmpty_0yvhh")
+Button/styles/pressed = SubResource("StyleBoxFlat_mg6qu")
+Label/fonts/font = ExtResource("2_wibb7")
+Panel/styles/panel = ExtResource("3_uum85")
+PopupMenu/fonts/font = ExtResource("2_wibb7")
+PopupMenu/styles/panel = ExtResource("3_uum85")
 
 [node name="PlayerControlsDisplay" type="Control"]
 layout_mode = 3
@@ -26,7 +62,7 @@ layout_mode = 2
 
 [node name="Title" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "CONTROLS"
 horizontal_alignment = 1
@@ -44,7 +80,7 @@ columns = 3
 
 [node name="P1_Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "PLAYER 1:"
 horizontal_alignment = 2
@@ -56,14 +92,14 @@ layout_mode = 2
 
 [node name="P1_Controls" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "W / S"
 vertical_alignment = 1
 
 [node name="P2_Label" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "PLAYER 2:"
 horizontal_alignment = 2
@@ -75,14 +111,14 @@ layout_mode = 2
 
 [node name="P2_Controls" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "ARROW UP / ARROW DOWN"
 vertical_alignment = 1
 
 [node name="Pause" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "PAUSE:"
 horizontal_alignment = 2
@@ -94,14 +130,14 @@ layout_mode = 2
 
 [node name="Pause_Controls" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "ESC / P"
 vertical_alignment = 1
 
 [node name="New_Ball" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "NEW BALL:"
 horizontal_alignment = 2
@@ -113,7 +149,7 @@ layout_mode = 2
 
 [node name="New_Ball_Controls" type="Label" parent="CenterContainer/VBoxContainer/GridContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 theme_override_font_sizes/font_size = 24
 text = "N"
 vertical_alignment = 1
@@ -124,7 +160,7 @@ layout_mode = 2
 
 [node name="PressAnyKey" type="Label" parent="CenterContainer/VBoxContainer"]
 layout_mode = 2
-theme = ExtResource("2_3ajda")
+theme = SubResource("Theme_cx4m1")
 text = "PRESS ANY KEY TO START"
 horizontal_alignment = 1
 vertical_alignment = 1
