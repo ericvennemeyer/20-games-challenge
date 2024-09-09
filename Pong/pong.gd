@@ -6,15 +6,20 @@ var ball_direction: int
 var spawned_ball
 var losing_player
 
+var countdown_timer_count: int = 0
+
 @onready var victory_sfx_player: AudioStreamPlayer = $VictorySFXPlayer
+@onready var countdown_sfx_player: AudioStreamPlayer = $CountdownSFXPlayer
 @onready var spawn_ball_sfx_player: AudioStreamPlayer = $SpawnBallSFXPlayer
+@onready var pause_sfx_player: AudioStreamPlayer = $PauseSFXPlayer
+@onready var countdown_timer: Timer = $CountdownTimer
 @onready var next_ball_timer: Timer = $NextBallTimer
 @onready var pause_menu: CanvasLayer = $PauseMenu
 
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.BLACK)
-	start_game()
+	play_countdown()
 
 
 func _draw() -> void:
@@ -26,7 +31,23 @@ func _process(delta: float) -> void:
 		spawned_ball.queue_free()
 		start_game()
 	elif Input.is_action_just_pressed("pause"):
+		pause_sfx_player.play()
 		pause_menu.pause_game()
+
+
+func play_countdown() -> void:
+	countdown_sfx_player.play()
+	countdown_timer.start()
+
+
+func _on_countdown_timer_timeout() -> void:
+	if countdown_timer_count < 2:
+		countdown_sfx_player.play()
+		countdown_timer_count += 1
+	else:
+		countdown_timer.stop()
+		countdown_timer_count = 0
+		start_game()
 
 
 func start_game() -> void:

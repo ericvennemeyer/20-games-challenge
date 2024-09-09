@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://oysgg7pulc8i"
+path="res://.godot/imported/Oldskool Triple A.wav-9ce4d41cf0afd23313dc4701638e2d6e.sample"
+
+[deps]
+
+source_file="res://Pong/Assets/Audio/Oldskool Triple A.wav"
+dest_files=["res://.godot/imported/Oldskool Triple A.wav-9ce4d41cf0afd23313dc4701638e2d6e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0

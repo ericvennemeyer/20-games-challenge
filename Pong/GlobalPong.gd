@@ -2,6 +2,7 @@ extends Node
 
 @onready var ui_move_sfx: AudioStream = preload("res://Pong/Assets/Audio/Classic Old School 8 Bit Retro Game -User Interface Interaction - Jump, Take Off, Rise, Lift Up - 01    [005080].wav")
 @onready var ui_select_sfx: AudioStream = preload("res://Pong/Assets/Audio/Future_Button_9.wav")
+@onready var pause_game_sfx: AudioStream = preload("res://Pong/Assets/Audio/Oldskool Triple A.wav")
 
 
 # For player type, 0 = human and 1 = computer
@@ -28,6 +29,8 @@ func play_ui_sfx(event: InputEvent) -> void:
 		audio = ui_move_sfx
 	elif event.is_action_pressed("ui_accept"):
 		audio = ui_select_sfx
+	elif event.is_action_pressed("pause"):
+		audio = pause_game_sfx
 	
 	var asp = AudioStreamPlayer.new()
 	asp.stream = audio

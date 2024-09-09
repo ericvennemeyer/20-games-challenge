@@ -1,11 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxqjtiv6ionav"]
+[gd_scene load_steps=16 format=3 uid="uid://cxqjtiv6ionav"]
 
 [ext_resource type="Texture2D" uid="uid://caidy4kuidpru" path="res://20GamesMain/Assets/retro-tv-table-indoors.jpg" id="1_1am11"]
 [ext_resource type="Script" path="res://20GamesMain/20_games_main.gd" id="1_cbgx4"]
 [ext_resource type="Shader" path="res://20GamesMain/20_games_main.gdshader" id="2_awn1b"]
 [ext_resource type="AudioStream" uid="uid://6o1kgmwpy5qh" path="res://20GamesMain/Assets/Music/bgm_9.wav" id="2_b1trb"]
+[ext_resource type="Script" path="res://20GamesMain/20_games_main_audio_manager.gd" id="2_ieryc"]
 [ext_resource type="FontFile" uid="uid://c4c2xa0ait2b2" path="res://Pong/Assets/Fonts/Kenney Blocks.ttf" id="2_lnqgg"]
+[ext_resource type="AudioStream" uid="uid://bvwn144no3wbr" path="res://20GamesMain/Assets/SFX/Click_042.wav" id="3_lo36s"]
+[ext_resource type="AudioStream" uid="uid://dkp7tbbymm2cp" path="res://20GamesMain/Assets/SFX/Simple_classic_beep_015.wav" id="4_eu10i"]
 [ext_resource type="Texture2D" uid="uid://b01kxc6pstvud" path="res://20GamesMain/Assets/retro-tv-table-indoors_cutout.png" id="4_itiqh"]
+[ext_resource type="AudioStream" uid="uid://cpe0fjgxno648" path="res://20GamesMain/Assets/SFX/31254__deleted_user_229898__tvon.wav" id="5_5hhsx"]
 [ext_resource type="Theme" uid="uid://cbl87heqdty7v" path="res://20GamesMain/20_games_main_default_theme.tres" id="5_fsrwx"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mih8a"]
@@ -54,10 +58,17 @@ grow_vertical = 2
 script = ExtResource("1_cbgx4")
 pong_game = "res://Pong/pong_main_menu.tscn"
 
+[node name="AudioManager" type="Node" parent="."]
+script = ExtResource("2_ieryc")
+main_ui_focus_sfx = ExtResource("3_lo36s")
+main_ui_accept_sfx = ExtResource("4_eu10i")
+tv_futz_sfx = ExtResource("5_5hhsx")
+
 [node name="MenuBGMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_b1trb")
 volume_db = -7.0
 autoplay = true
+bus = &"Music"
 
 [node name="Retro-tv-table-indoors" type="Sprite2D" parent="."]
 position = Vector2(369, 186)
@@ -65,7 +76,6 @@ scale = Vector2(0.22, 0.22)
 texture = ExtResource("1_1am11")
 
 [node name="TV20GamesTitle" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -79,6 +89,7 @@ grow_vertical = 2
 scale = Vector2(1.1, 1.1)
 
 [node name="20" type="Label" parent="TV20GamesTitle"]
+layout_mode = 0
 offset_left = 252.0
 offset_top = 78.0
 offset_right = 444.0
@@ -89,6 +100,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="GAMES" type="Label" parent="TV20GamesTitle"]
+layout_mode = 0
 offset_left = 212.0
 offset_top = 177.0
 offset_right = 468.0
@@ -99,6 +111,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="CHALLENGE" type="Label" parent="TV20GamesTitle"]
+layout_mode = 0
 offset_left = 182.0
 offset_top = 296.0
 offset_right = 506.0
@@ -107,6 +120,7 @@ text = "CHALLENGE"
 label_settings = SubResource("LabelSettings_2nd8p")
 
 [node name="TVSettingsScreen" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -172,6 +186,140 @@ theme_type_variation = &"TVButton"
 theme_override_font_sizes/font_size = 32
 text = "BACK"
 
+[node name="TVCreditsScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TVCreditsScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -102.0
+offset_right = -9.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_fsrwx")
+text = "CREDITS: 
+UNDER CONSTRUCTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TVCreditsScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = 11.0
+offset_right = 23.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_fsrwx")
+theme_override_font_sizes/font_size = 16
+text = "PRESS ANY KEY TO RETURN TO MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CreditsBackButton" type="Button" parent="TVCreditsScreen"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = 21.0
+offset_right = -95.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_fsrwx")
+theme_type_variation = &"TVButton"
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+
+[node name="TVAboutScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TVAboutScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -255.0
+offset_top = -102.0
+offset_right = -9.0
+offset_bottom = -39.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_fsrwx")
+text = "ABOUT: 
+UNDER CONSTRUCTION"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="TVAboutScreen"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = 11.0
+offset_right = 23.0
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_fsrwx")
+theme_override_font_sizes/font_size = 16
+text = "PRESS ANY KEY TO RETURN TO MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AboutBackButton" type="Button" parent="TVAboutScreen"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -175.0
+offset_top = 21.0
+offset_right = -95.0
+offset_bottom = 61.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("5_fsrwx")
+theme_type_variation = &"TVButton"
+theme_override_font_sizes/font_size = 32
+text = "BACK"
+
 [node name="CRT Effect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_rtmkl")
 layout_mode = 0
@@ -209,80 +357,6 @@ theme = ExtResource("5_fsrwx")
 text = "PONG"
 alignment = 0
 
-[node name="Button2" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "BREAKOUT"
-alignment = 0
-
-[node name="Button3" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "FLAPPY BIRD"
-alignment = 0
-
-[node name="Button4" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "SUPER MARIO BROS"
-alignment = 0
-
-[node name="Button5" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "SUPER MONKEY 
-   BALL"
-alignment = 0
-
-[node name="Button6" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "CONWAY'S GAME
-   OF LIFE"
-alignment = 0
-
-[node name="Button7" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "FLAPPY BIRD"
-alignment = 0
-
-[node name="Button8" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "FLAPPY BIRD"
-alignment = 0
-
-[node name="Button9" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "FLAPPY BIRD"
-alignment = 0
-
-[node name="Button10" type="Button" parent="GameMenu/VBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-theme = ExtResource("5_fsrwx")
-text = "FLAPPY BIRD"
-alignment = 0
-
 [node name="HSeparator" type="HSeparator" parent="GameMenu/VBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -314,8 +388,17 @@ theme = ExtResource("5_fsrwx")
 text = "ABOUT"
 alignment = 0
 
+[connection signal="gui_input" from="TVSettingsScreen/SettingsBackButton" to="." method="_on_settings_back_button_gui_input"]
 [connection signal="pressed" from="TVSettingsScreen/SettingsBackButton" to="." method="_on_settings_back_button_pressed"]
+[connection signal="gui_input" from="TVCreditsScreen/CreditsBackButton" to="." method="_on_credits_back_button_gui_input"]
+[connection signal="pressed" from="TVCreditsScreen/CreditsBackButton" to="." method="_on_credits_back_button_pressed"]
+[connection signal="gui_input" from="TVAboutScreen/AboutBackButton" to="." method="_on_about_back_button_gui_input"]
+[connection signal="pressed" from="TVAboutScreen/AboutBackButton" to="." method="_on_about_back_button_pressed"]
+[connection signal="gui_input" from="GameMenu/VBoxContainer/PongButton" to="." method="_on_pong_button_gui_input"]
 [connection signal="pressed" from="GameMenu/VBoxContainer/PongButton" to="." method="_on_pong_button_pressed"]
+[connection signal="gui_input" from="GameMenu/VBoxContainer/SettingsButton" to="." method="_on_settings_button_gui_input"]
 [connection signal="pressed" from="GameMenu/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="gui_input" from="GameMenu/VBoxContainer/CreditsButton" to="." method="_on_credits_button_gui_input"]
 [connection signal="pressed" from="GameMenu/VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="gui_input" from="GameMenu/VBoxContainer/AboutButton" to="." method="_on_about_button_gui_input"]
 [connection signal="pressed" from="GameMenu/VBoxContainer/AboutButton" to="." method="_on_about_button_pressed"]
