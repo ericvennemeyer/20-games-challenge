@@ -1,3 +1,4 @@
+class_name Paddle
 extends CharacterBody2D
 
 const SPEED = 300.0
@@ -66,8 +67,8 @@ func create_computer_opponent() -> void:
 	random.randomize()
 	computer_offensive_speed = randf_range(300.0, 420.0)
 	computer_defensive_speed = computer_offensive_speed * randf_range(0, 1)
-	print("Offensive speed: " + str(computer_offensive_speed) + 
-		", Defensive speed: " + str(computer_defensive_speed))
+	#print("Offensive speed: " + str(computer_offensive_speed) + 
+		#", Defensive speed: " + str(computer_defensive_speed))
 
 
 func update_ball_reference(_ball: Ball) -> void:

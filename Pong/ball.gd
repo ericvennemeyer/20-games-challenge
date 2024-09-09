@@ -1,7 +1,12 @@
 class_name Ball
 extends CharacterBody2D
 
+signal collided_with_paddle
+
 const SPEED = 450.0
+
+var last_collision = null
+var this_collision = null
 
 @onready var ball_sfx_player: AudioStreamPlayer = $BallSFXPlayer
 
@@ -17,6 +22,12 @@ func _physics_process(delta: float) -> void:
 	if collision:
 		velocity = velocity.bounce(collision.get_normal())
 		add_random_bounce()
+		
+		# Add to rally count if ball hits a paddle
+		last_collision = this_collision
+		this_collision = collision.get_collider()
+		if this_collision.has_method("check_ball_moving_toward_player") and this_collision != last_collision:
+			collided_with_paddle.emit()
 		
 		ball_sfx_player.play()
 

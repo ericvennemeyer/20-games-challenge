@@ -4,16 +4,22 @@ extends CanvasLayer
 @export_file("*.tscn") var twenty_games_main_menu: String
 
 @onready var resume_button: Button = $MarginContainer/VBoxContainer/ResumeButton
+@onready var current_rally_count: Label = $MarginContainer/VBoxContainer/CurrentRallyCount
+@onready var longest_rally_count: Label = $MarginContainer/VBoxContainer/LongestRallyCount
 
 
 func _ready() -> void:
 	hide()
 
 
-func pause_game() -> void:
+func pause_game(curr_rally: int, longest_rally: int) -> void:
 	get_tree().paused = true
 	show()
 	resume_button.grab_focus()
+	
+	# Update rally counts in pause menu
+	current_rally_count.text = "THIS RALLY: " + str(curr_rally)
+	longest_rally_count.text = "LONGEST RALLY: " + str(longest_rally)
 
 
 func unpause_game() -> void:

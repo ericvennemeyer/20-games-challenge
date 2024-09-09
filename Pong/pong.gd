@@ -5,7 +5,8 @@ var ball_position: Vector2
 var ball_direction: int
 var spawned_ball
 var losing_player
-
+var current_rally_count: int = 0
+var longest_rally_count: int = 0
 var countdown_timer_count: int = 0
 
 @onready var victory_sfx_player: AudioStreamPlayer = $VictorySFXPlayer
@@ -32,7 +33,7 @@ func _process(delta: float) -> void:
 		start_game()
 	elif Input.is_action_just_pressed("pause"):
 		pause_sfx_player.play()
-		pause_menu.pause_game()
+		pause_menu.pause_game(current_rally_count, longest_rally_count)
 
 
 func play_countdown() -> void:
@@ -51,6 +52,7 @@ func _on_countdown_timer_timeout() -> void:
 
 
 func start_game() -> void:
+	current_rally_count = 0
 	randomize_ball_params()
 	spawn_ball()
 
@@ -70,6 +72,7 @@ func randomize_ball_params():
 
 func spawn_ball() -> void:
 	var new_ball = ball.instantiate()
+	new_ball.collided_with_paddle.connect(on_ball_collided_with_paddle)
 	spawned_ball = new_ball
 	new_ball.start(ball_position, ball_direction)
 	add_child.call_deferred(new_ball)
@@ -89,3 +92,9 @@ func _on_score_board_point_scored(_losing_player: String) -> void:
 
 func _on_next_ball_timer_timeout() -> void:
 	start_game()
+
+
+func on_ball_collided_with_paddle() -> void:
+	current_rally_count += 1
+	if current_rally_count > longest_rally_count:
+		longest_rally_count = current_rally_count
