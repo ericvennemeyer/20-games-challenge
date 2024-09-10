@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxqjtiv6ionav"]
+[gd_scene load_steps=17 format=3 uid="uid://cxqjtiv6ionav"]
 
 [ext_resource type="Texture2D" uid="uid://caidy4kuidpru" path="res://20GamesMain/Assets/retro-tv-table-indoors.jpg" id="1_1am11"]
 [ext_resource type="Script" path="res://20GamesMain/20_games_main.gd" id="1_cbgx4"]
@@ -23,6 +23,11 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_2nd8p"]
 font = ExtResource("2_lnqgg")
 font_size = 48
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_2s02y"]
+color = Color(0.886262, 0.886261, 0.886262, 1)
+grow_end = -4.0
+thickness = 2
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtmkl"]
 shader = ExtResource("2_awn1b")
@@ -262,42 +267,41 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="TVAboutScreen"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TVAboutScreen"]
 layout_mode = 1
-anchors_preset = 8
+anchors_preset = 5
 anchor_left = 0.5
-anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -255.0
-offset_top = -102.0
-offset_right = -9.0
-offset_bottom = -39.0
+offset_left = -291.0
+offset_top = 124.0
+offset_right = 19.0
+offset_bottom = 186.0
 grow_horizontal = 2
-grow_vertical = 2
+
+[node name="AboutHeading" type="Label" parent="TVAboutScreen/VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("5_fsrwx")
-text = "ABOUT: 
-UNDER CONSTRUCTION"
+text = "ABOUT"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="TVAboutScreen"]
-visible = false
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -287.0
-offset_top = 11.0
-offset_right = 23.0
-offset_bottom = 74.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HSeparator" type="HSeparator" parent="TVAboutScreen/VBoxContainer"]
+custom_minimum_size = Vector2(70, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/separator = SubResource("StyleBoxLine_2s02y")
+
+[node name="Label2" type="Label" parent="TVAboutScreen/VBoxContainer"]
+layout_mode = 2
 theme = ExtResource("5_fsrwx")
 theme_override_font_sizes/font_size = 16
-text = "PRESS ANY KEY TO RETURN TO MAIN MENU"
+text = "these games have been created while
+going through the 20 games challenge.
+the menu to the right will expand to
+include more games as I complete them.
+more info to come later.
+
+thanks for playing!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -309,10 +313,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -175.0
-offset_top = 21.0
-offset_right = -95.0
-offset_bottom = 61.0
+offset_left = -195.0
+offset_top = 75.0
+offset_right = -75.0
+offset_bottom = 115.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("5_fsrwx")
