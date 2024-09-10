@@ -347,6 +347,7 @@ offset_right = 4.0
 offset_bottom = 154.0
 grow_horizontal = 0
 grow_vertical = 2
+alignment = 1
 
 [node name="PongButton" type="Button" parent="GameMenu/VBoxContainer"]
 custom_minimum_size = Vector2(150, 0)

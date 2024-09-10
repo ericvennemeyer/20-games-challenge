@@ -13,11 +13,15 @@ extends Control
 @onready var about_back_button: Button = $TVAboutScreen/AboutBackButton
 
 @onready var pong_button: Button = $GameMenu/VBoxContainer/PongButton
+@onready var settings_button: Button = $GameMenu/VBoxContainer/SettingsButton
+@onready var credits_button: Button = $GameMenu/VBoxContainer/CreditsButton
+@onready var about_button: Button = $GameMenu/VBoxContainer/AboutButton
 
 
 func _ready() -> void:
 	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	reset_tv_display()
+	pong_button.grab_focus()
 
 
 func reset_tv_display() -> void:
@@ -25,8 +29,6 @@ func reset_tv_display() -> void:
 	tv_settings_screen.hide()
 	tv_credits_screen.hide()
 	tv_about_screen.hide()
-	
-	pong_button.grab_focus()
 
 
 ############################
@@ -77,6 +79,7 @@ func _on_about_button_gui_input(event: InputEvent) -> void:
 
 func _on_settings_back_button_pressed() -> void:
 	reset_tv_display()
+	settings_button.grab_focus()
 
 
 func _on_settings_back_button_gui_input(event: InputEvent) -> void:
@@ -85,6 +88,7 @@ func _on_settings_back_button_gui_input(event: InputEvent) -> void:
 
 func _on_credits_back_button_pressed() -> void:
 	reset_tv_display()
+	credits_button.grab_focus()
 
 
 func _on_credits_back_button_gui_input(event: InputEvent) -> void:
@@ -93,6 +97,7 @@ func _on_credits_back_button_gui_input(event: InputEvent) -> void:
 
 func _on_about_back_button_pressed() -> void:
 	reset_tv_display()
+	about_button.grab_focus()
 
 
 func _on_about_back_button_gui_input(event: InputEvent) -> void:
