@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 signal collided_with_paddle
 
-const SPEED = 450.0
+const SPEED = 500.0
 
 var last_collision = null
 var this_collision = null

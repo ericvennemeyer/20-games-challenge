@@ -65,7 +65,7 @@ func check_ball_moving_toward_player():
 func create_computer_opponent() -> void:
 	var random = RandomNumberGenerator.new()
 	random.randomize()
-	computer_offensive_speed = randf_range(300.0, 420.0)
+	computer_offensive_speed = randf_range(250.0, 450.0)
 	computer_defensive_speed = computer_offensive_speed * randf_range(0, 1)
 	#print("Offensive speed: " + str(computer_offensive_speed) + 
 		#", Defensive speed: " + str(computer_defensive_speed))
