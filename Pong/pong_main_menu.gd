@@ -3,11 +3,17 @@ extends Control
 @export_file("*.tscn") var player_controls_scene: String
 @export_file("*.tscn") var twenty_games_main_menu: String
 
+@onready var p_1_option_button: OptionButton = $VBoxContainer/HBoxContainer/VBoxContainer/P1_OptionButton
+@onready var p_2_option_button: OptionButton = $VBoxContainer/HBoxContainer/VBoxContainer2/P2_OptionButton
 @onready var play_button: Button = $VBoxContainer/Play_Button
 
 
 func _ready() -> void:
 	RenderingServer.set_default_clear_color(Color.BLACK)
+	
+	p_1_option_button.selected = GlobalPong.get_player_type("p1")
+	p_2_option_button.selected = GlobalPong.get_player_type("p2")
+	
 	play_button.grab_focus()
 
 
