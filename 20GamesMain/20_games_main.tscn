@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxqjtiv6ionav"]
+[gd_scene load_steps=18 format=3 uid="uid://cxqjtiv6ionav"]
 
 [ext_resource type="Texture2D" uid="uid://caidy4kuidpru" path="res://20GamesMain/Assets/retro-tv-table-indoors.jpg" id="1_1am11"]
 [ext_resource type="Script" path="res://20GamesMain/20_games_main.gd" id="1_cbgx4"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://b01kxc6pstvud" path="res://20GamesMain/Assets/retro-tv-table-indoors_cutout.png" id="4_itiqh"]
 [ext_resource type="AudioStream" uid="uid://cpe0fjgxno648" path="res://20GamesMain/Assets/SFX/31254__deleted_user_229898__tvon.wav" id="5_5hhsx"]
 [ext_resource type="Theme" uid="uid://cbl87heqdty7v" path="res://20GamesMain/20_games_main_default_theme.tres" id="5_fsrwx"]
+[ext_resource type="Script" path="res://20GamesMain/20_games_main_crt_effect.gd" id="11_u67ey"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_mih8a"]
 font = ExtResource("2_lnqgg")
@@ -32,8 +33,8 @@ thickness = 2
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_rtmkl"]
 shader = ExtResource("2_awn1b")
 shader_parameter/overlay = true
-shader_parameter/scanlines_opacity = 0.2
-shader_parameter/scanlines_width = 0.15
+shader_parameter/scanlines_opacity = 0.03
+shader_parameter/scanlines_width = 0.1
 shader_parameter/grille_opacity = 0.2
 shader_parameter/resolution = Vector2(640, 480)
 shader_parameter/pixelate = false
@@ -331,6 +332,7 @@ offset_left = 123.0
 offset_top = 77.0
 offset_right = 579.0
 offset_bottom = 419.0
+script = ExtResource("11_u67ey")
 
 [node name="Retro-tv-table-indoorsCutout" type="Sprite2D" parent="."]
 position = Vector2(369, 186)

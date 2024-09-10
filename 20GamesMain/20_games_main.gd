@@ -19,7 +19,6 @@ extends Control
 
 
 func _ready() -> void:
-	#Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	reset_tv_display()
 	pong_button.grab_focus()
 
