@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://beavtiwqf4c3y"]
+[gd_scene load_steps=2 format=3 uid="uid://beavtiwqf4c3y"]
+
+[ext_resource type="PackedScene" uid="uid://cj1jqa0tdvmm2" path="res://FlutteryMoth/moth.tscn" id="1_flt4k"]
 
 [node name="FlutteryMoth" type="Node2D"]
+
+[node name="Moth" parent="." instance=ExtResource("1_flt4k")]
+position = Vector2(172, 177)
+scale = Vector2(2, 2)

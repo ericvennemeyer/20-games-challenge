@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cj1jqa0tdvmm2"]
+
+[ext_resource type="Script" path="res://FlutteryMoth/moth_player.gd" id="1_p0muf"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6sfey"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xmy3v"]
+size = Vector2(16, 16)
+
+[node name="Moth" type="CharacterBody2D"]
+script = ExtResource("1_p0muf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-8.9407e-07, -8.9407e-07)
+scale = Vector2(16, 16)
+texture = SubResource("CanvasTexture_6sfey")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xmy3v")
