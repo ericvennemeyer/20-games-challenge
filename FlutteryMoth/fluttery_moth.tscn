@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://beavtiwqf4c3y"]
+[gd_scene load_steps=7 format=3 uid="uid://beavtiwqf4c3y"]
 
 [ext_resource type="Script" path="res://FlutteryMoth/fluttery_moth.gd" id="1_5gr0w"]
 [ext_resource type="PackedScene" uid="uid://cj1jqa0tdvmm2" path="res://FlutteryMoth/moth.tscn" id="1_flt4k"]
 [ext_resource type="Script" path="res://FlutteryMoth/moth_boundary.gd" id="3_uky24"]
+[ext_resource type="Script" path="res://FlutteryMoth/moth_obstacle_spawner.gd" id="4_okagk"]
+[ext_resource type="PackedScene" uid="uid://dfxqgvo3d00ge" path="res://FlutteryMoth/moth_obstacle.tscn" id="5_87mxq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1dev"]
 size = Vector2(976, 20)
@@ -29,5 +31,14 @@ script = ExtResource("3_uky24")
 position = Vector2(478, -15)
 shape = SubResource("RectangleShape2D_v1dev")
 
+[node name="ObstacleSpawner" type="Node2D" parent="."]
+position = Vector2(989, 0)
+script = ExtResource("4_okagk")
+obstacle = ExtResource("5_87mxq")
+
+[node name="Timer" type="Timer" parent="ObstacleSpawner"]
+wait_time = 3.0
+
 [connection signal="body_entered" from="CeilingBoundary" to="CeilingBoundary" method="_on_body_entered"]
 [connection signal="body_entered" from="FloorBoundary" to="FloorBoundary" method="_on_body_entered"]
+[connection signal="timeout" from="ObstacleSpawner/Timer" to="ObstacleSpawner" method="_on_timer_timeout"]
