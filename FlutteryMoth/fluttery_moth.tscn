@@ -1,9 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://beavtiwqf4c3y"]
+[gd_scene load_steps=5 format=3 uid="uid://beavtiwqf4c3y"]
 
+[ext_resource type="Script" path="res://FlutteryMoth/fluttery_moth.gd" id="1_5gr0w"]
 [ext_resource type="PackedScene" uid="uid://cj1jqa0tdvmm2" path="res://FlutteryMoth/moth.tscn" id="1_flt4k"]
+[ext_resource type="Script" path="res://FlutteryMoth/moth_boundary.gd" id="3_uky24"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1dev"]
+size = Vector2(976, 20)
 
 [node name="FlutteryMoth" type="Node2D"]
+script = ExtResource("1_5gr0w")
 
 [node name="Moth" parent="." instance=ExtResource("1_flt4k")]
-position = Vector2(172, 177)
+position = Vector2(221, 177)
 scale = Vector2(2, 2)
+
+[node name="CeilingBoundary" type="Area2D" parent="."]
+script = ExtResource("3_uky24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CeilingBoundary"]
+position = Vector2(478, -15)
+shape = SubResource("RectangleShape2D_v1dev")
+
+[node name="FloorBoundary" type="Area2D" parent="."]
+position = Vector2(0, 570)
+script = ExtResource("3_uky24")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorBoundary"]
+position = Vector2(478, -15)
+shape = SubResource("RectangleShape2D_v1dev")
+
+[connection signal="body_entered" from="CeilingBoundary" to="CeilingBoundary" method="_on_body_entered"]
+[connection signal="body_entered" from="FloorBoundary" to="FloorBoundary" method="_on_body_entered"]
