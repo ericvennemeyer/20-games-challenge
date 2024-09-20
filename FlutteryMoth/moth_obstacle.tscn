@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfxqgvo3d00ge"]
+
+[ext_resource type="Script" path="res://FlutteryMoth/moth_obstacle.gd" id="1_t8qtm"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_8xvuk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3avnt"]
+size = Vector2(16, 449)
+
+[node name="MothObstacle" type="Area2D"]
+script = ExtResource("1_t8qtm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -100)
+scale = Vector2(16, 449)
+texture = SubResource("CanvasTexture_8xvuk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -100.5)
+shape = SubResource("RectangleShape2D_3avnt")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, 601)
+scale = Vector2(16, 449)
+texture = SubResource("CanvasTexture_8xvuk")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, 601)
+shape = SubResource("RectangleShape2D_3avnt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
